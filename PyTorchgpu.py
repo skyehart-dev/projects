@@ -16,10 +16,10 @@ trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
 testset = torchvision.datasets.CIFAR10(root='./data', train=False,
                                        download=True, transform=transform)
 
-x_train = trainset.data
-y_train = trainset.targets
-x_test = testset.data
-y_test = testset.targets
+x_train = torch.Tensor(trainset.data).to(device)
+y_train = torch.Tensor(trainset.targets).to(device)
+x_test = torch.Tensor(testset.data).to(device)
+y_test = torch.Tensor(testset.targets).to(device)
 
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
